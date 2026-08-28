@@ -1051,7 +1051,7 @@ const CSS = `
 .cmt-reveal.is-visible { opacity: 1; transform: translateY(0); }
 
 /* WHY */
-.cmt-why { padding: 40px 0 40px; margin-top: 20px; }
+.cmt-why { padding: 16px 0 40px; margin-top: 0; }
 .cmt-why__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .cmt-why__card {
   background: var(--panel);
@@ -1145,23 +1145,20 @@ const CSS = `
 /* PARTNERS */
 .cmt-partners { padding: 72px 0; text-align: center; background: var(--bg-alt); }
 .cmt-brands__row {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 18px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 14px;
   margin-top: 28px;
 }
 .cmt-brands__card {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 12px;
-  width: 150px;
-  height: 90px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 12px;
   box-shadow: 0 4px 18px rgba(11,18,32,0.05);
 }
 .cmt-brands__logo {
@@ -1203,11 +1200,13 @@ const CSS = `
 @media (max-width: 900px) {
   .cmt-hero__grid, .cmt-work__grid, .cmt-contact__grid { grid-template-columns: 1fr; }
   .cmt-why__grid, .cmt-services__grid { grid-template-columns: 1fr 1fr; }
+  .cmt-brands__row { grid-template-columns: repeat(4, 1fr); }
   .cmt-nav__links, .cmt-nav__actions { display: none; }
   .cmt-nav__burger { display: flex; }
 }
 @media (max-width: 600px) {
   .cmt-why__grid, .cmt-services__grid { grid-template-columns: 1fr; }
+  .cmt-brands__row { grid-template-columns: repeat(3, 1fr); }
   .cmt-hero { padding-top: 72px; }
 }
 
