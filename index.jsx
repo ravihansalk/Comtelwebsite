@@ -510,21 +510,44 @@ export default function ComtelSite() {
 
       {/* FOOTER */}
       <footer className="cmt-footer">
-        <div className="cmt-container cmt-footer__inner">
-          <a href="#top" className="cmt-logo cmt-logo--footer">
-            <span className="cmt-logo__ring" aria-hidden="true">C</span>
-            <span className="cmt-logo__text">
-              <span className="cmt-logo__word">
-                Comtel<span className="cmt-logo__nz">NZ</span>
+        <div className="cmt-container cmt-footer__top">
+          <div className="cmt-footer__brand">
+            <a href="#top" className="cmt-logo cmt-logo--footer">
+              <span className="cmt-logo__ring" aria-hidden="true">C</span>
+              <span className="cmt-logo__text">
+                <span className="cmt-logo__word">
+                  Comtel<span className="cmt-logo__nz">NZ</span>
+                </span>
+                <span className="cmt-logo__tagline">Global ICT Partner</span>
               </span>
-              <span className="cmt-logo__tagline">Global ICT Partner</span>
-            </span>
-          </a>
-          <nav className="cmt-footer__links">
-            <a href="#services">Services</a>
-            <a href="#why">Why Us</a>
-            <a href="#contact">Contact Us</a>
-          </nav>
+            </a>
+            <p className="cmt-footer__blurb">
+              Helping New Zealand businesses stay connected, secure, and
+              productive with end-to-end ICT infrastructure solutions.
+            </p>
+          </div>
+
+          <div className="cmt-footer__col">
+            <h4 className="cmt-footer__heading">Quick Links</h4>
+            <nav className="cmt-footer__links">
+              <a href="#services">Services</a>
+              <a href="#why">Why Us</a>
+              <a href="#work">How We Work</a>
+              <a href="#contact">Contact Us</a>
+            </nav>
+          </div>
+
+          <div className="cmt-footer__col">
+            <h4 className="cmt-footer__heading">Get In Touch</h4>
+            <div className="cmt-footer__links">
+              <a href="mailto:info@comtelnz.co.nz">info@comtelnz.co.nz</a>
+              <a href="tel:+64274738706">+64 274 738 706</a>
+              <span>8/23 Springs Road, East Tamaki, Auckland 2013</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="cmt-container cmt-footer__bottom">
           <p className="cmt-footer__copy">
             © {new Date().getFullYear()} Comtel NZ Limited. All rights reserved.
           </p>
@@ -1177,24 +1200,56 @@ const CSS = `
 .cmt-contact__card:hover { border-color: var(--accent); }
 
 /* FOOTER */
-.cmt-footer { border-top: 1px solid var(--line); padding: 32px 0; }
-.cmt-footer__inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-.cmt-footer__links { display: flex; gap: 22px; }
-.cmt-footer__links a { color: var(--muted); text-decoration: none; font-size: 14px; }
-.cmt-footer__links a:hover { color: var(--ink); }
-.cmt-footer__copy { color: var(--muted); font-size: 13px; margin: 0; }
+.cmt-footer {
+  background: linear-gradient(180deg, #3E6FCB 0%, #3564bd 45%, #2c56a8 100%);
+  padding: 64px 0 0;
+}
+.cmt-footer__top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 44px;
+}
+.cmt-footer__brand { display: flex; flex-direction: column; gap: 14px; }
+.cmt-footer__blurb {
+  color: rgba(234,242,255,.78);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 34ch;
+  margin: 0;
+}
+.cmt-footer__heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 18px;
+}
+.cmt-footer__links { display: flex; flex-direction: column; gap: 12px; }
+.cmt-footer__links a, .cmt-footer__links span { color: rgba(234,242,255,.78); text-decoration: none; font-size: 14.5px; }
+.cmt-footer__links a:hover { color: #5FD6F5; }
+.cmt-logo--footer .cmt-logo__word { color: #fff; }
+.cmt-logo--footer .cmt-logo__tagline { color: rgba(234,242,255,.65); }
+.cmt-footer__bottom {
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding: 22px 0;
+}
+.cmt-footer__copy { color: rgba(234,242,255,.65); font-size: 13px; margin: 0; }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .cmt-hero__grid, .cmt-work__grid, .cmt-contact__grid { grid-template-columns: 1fr; }
   .cmt-why__grid, .cmt-services__grid { grid-template-columns: 1fr 1fr; }
   .cmt-brands__row { grid-template-columns: repeat(4, 1fr); }
+  .cmt-footer__top { grid-template-columns: 1fr 1fr; }
   .cmt-nav__links, .cmt-nav__actions { display: none; }
   .cmt-nav__burger { display: flex; }
 }
 @media (max-width: 600px) {
   .cmt-why__grid, .cmt-services__grid { grid-template-columns: 1fr; }
   .cmt-brands__row { grid-template-columns: repeat(3, 1fr); }
+  .cmt-footer__top { grid-template-columns: 1fr; }
   .cmt-hero { padding-top: 72px; }
 }
 
