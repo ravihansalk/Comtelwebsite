@@ -16,17 +16,17 @@ import React, { useEffect, useRef, useState } from "react";
 
 const SERVICES = [
   {
-    id: "data",
-    tag: "DATA & NETWORK INFRASTRUCTURE",
-    title: "Reliable Connectivity. Built for Performance.",
+    id: "it",
+    tag: "ENTERPRISE ICT SERVICES",
+    title: "Future-Ready ICT Solutions.",
     items: [
-      "Structured Cabling",
-      "Fibre Optic Solutions",
-      "Network Installation & Certification",
-      "Server Cabinets & Racks",
-      "Wi-Fi Infrastructure",
-      "Network Upgrades",
-      "Network Testing & Support",
+      "Managed ICT Services",
+      "Enterprise Networking",
+      "Microsoft 365 & Cloud Solutions",
+      "Server & Infrastructure Management",
+      "Cybersecurity Solutions",
+      "Backup & Disaster Recovery",
+      "ICT Consultancy",
     ],
   },
   {
@@ -72,17 +72,17 @@ const SERVICES = [
     ],
   },
   {
-    id: "it",
-    tag: "ENTERPRISE ICT SERVICES",
-    title: "Future-Ready ICT Solutions.",
+    id: "data",
+    tag: "DATA & NETWORK INFRASTRUCTURE",
+    title: "Reliable Connectivity. Built for Performance.",
     items: [
-      "Managed ICT Services",
-      "Enterprise Networking",
-      "Microsoft 365 & Cloud Solutions",
-      "Server & Infrastructure Management",
-      "Cybersecurity Solutions",
-      "Backup & Disaster Recovery",
-      "ICT Consultancy",
+      "Structured Cabling",
+      "Fibre Optic Solutions",
+      "Network Installation & Certification",
+      "Server Cabinets & Racks",
+      "Wi-Fi Infrastructure",
+      "Network Upgrades",
+      "Network Testing & Support",
     ],
   },
   {
@@ -124,6 +124,33 @@ const REASONS = [
 ];
 
 const NODES = ["DATA", "VOICE", "CCTV", "ACCESS", "I.T", "WEB"];
+
+const BRANDS = [
+  { name: "Lenovo", logo: "./images/partner-lenovo.png" },
+  { name: "HPE", logo: "./images/partner-hpe.png" },
+  { name: "Dell Technologies", logo: "./images/partner-dell.png" },
+  { name: "Cisco", logo: "./images/partner-cisco.png" },
+  { name: "Fortinet", logo: "./images/partner-fortinet.png" },
+  { name: "Microsoft", logo: "./images/partner-microsoft.png" },
+  { name: "Apple", logo: "./images/partner-apple.png" },
+  { name: "Avaya", logo: "./images/partner-avaya.png" },
+  { name: "Dahua Technology", logo: "./images/partner-dahua.png" },
+  { name: "Axis Communications", logo: "./images/partner-axis.png" },
+  { name: "Legrand", logo: "./images/partner-legrand.png" },
+  { name: "3CX", logo: "./images/partner-3cx.png" },
+  { name: "Yealink", logo: "./images/partner-yealink.png" },
+  { name: "Hikvision", logo: "./images/partner-hikvision.png" },
+  { name: "Grandstream", logo: "./images/partner-grandstream.png" },
+  { name: "Fargo", logo: "./images/partner-fargo.png" },
+  { name: "Inner Range", logo: "./images/partner-innerrange.png" },
+  { name: "Inovonics", logo: "./images/partner-inovonics.png" },
+  { name: "iPECS", logo: "./images/partner-ipecs.png" },
+  { name: "IQSIGHT", logo: "./images/partner-iqsight.png" },
+  { name: "Irisity", logo: "./images/partner-irisity.png" },
+  { name: "Lifesize", logo: "./images/partner-lifesize.png" },
+  { name: "Milestone", logo: "./images/partner-milestone.png" },
+  { name: "Northern", logo: "./images/partner-northern.png" },
+];
 
 function useOnScreen(ref) {
   const [visible, setVisible] = useState(false);
@@ -345,7 +372,7 @@ export default function ComtelSite() {
                   <circle cx="310" cy="310" r="120" fill="url(#coreShine)" className="imm-breathe"></circle>
                   <circle cx="310" cy="310" r="90" fill="#0A1535"></circle>
                   <clipPath id="heroCoreClip"><circle cx="310" cy="310" r="86"></circle></clipPath>
-                  <image href="./comtel-badge.png" x="224" y="224" width="172" height="172" clipPath="url(#heroCoreClip)" preserveAspectRatio="xMidYMid slice"></image>
+                  <image href="./images/comtel-badge.png" x="224" y="224" width="172" height="172" clipPath="url(#heroCoreClip)" preserveAspectRatio="xMidYMid slice"></image>
                   <circle cx="310" cy="310" r="86" fill="none" stroke="rgba(255,255,255,.5)" strokeWidth="2"></circle>
 
                   <g fill="#fff">
@@ -441,11 +468,14 @@ export default function ComtelSite() {
       <section id="partners" className="cmt-partners">
         <div className="cmt-container">
           <Reveal>
-            <p className="cmt-eyebrow" style={{ textAlign: "center" }}>TRUSTED BY BUSINESSES ACROSS AUCKLAND</p>
+            <p className="cmt-eyebrow" style={{ textAlign: "center" }}>TRUSTED TECHNOLOGY PARTNERS</p>
           </Reveal>
-          <Reveal className="cmt-partners__row">
-            <img src="./partner-logo-1.PNG" alt="Comtel NZ client partner" className="cmt-partners__logo" />
-            <img src="./partner-logo-2.PNG" alt="Comtel NZ client partner" className="cmt-partners__logo" />
+          <Reveal className="cmt-brands__row">
+            {BRANDS.map((b) => (
+              <div className="cmt-brands__card" key={b.name}>
+                <img src={b.logo} alt={b.name} className="cmt-brands__logo" />
+              </div>
+            ))}
           </Reveal>
         </div>
       </section>
@@ -524,7 +554,7 @@ const CSS = `
 
   section.imm-immersive{
     position:relative;
-    min-height:100vh;
+    min-height:72vh;
     overflow:hidden;
     background:
       radial-gradient(120% 90% at 20% -10%, rgba(90,150,255,.35), transparent 60%),
@@ -574,7 +604,7 @@ const CSS = `
   .imm-hero{
     position:relative;
     z-index:1;
-    padding: clamp(96px, 12vw, 140px) 0 clamp(64px, 8vw, 96px);
+    padding: clamp(72px, 9vw, 104px) 0 clamp(48px, 6vw, 72px);
   }
 
   .imm-wrap{
@@ -617,7 +647,7 @@ const CSS = `
   .imm-immersive h1{
     font-family:'Space Grotesk', sans-serif;
     font-weight:700;
-    font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+    font-size: clamp(1.9rem, 3.6vw, 2.8rem);
     line-height:1.08;
     letter-spacing:-.02em;
     margin: 0 0 20px;
@@ -1102,18 +1132,31 @@ const CSS = `
 
 /* PARTNERS */
 .cmt-partners { padding: 72px 0; text-align: center; background: var(--bg-alt); }
-.cmt-partners__row {
+.cmt-brands__row {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 56px;
+  align-items: stretch;
+  gap: 18px;
   flex-wrap: wrap;
   margin-top: 28px;
 }
-.cmt-partners__logo {
-  height: 96px;
+.cmt-brands__card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  width: 150px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-shadow: 0 4px 18px rgba(11,18,32,0.05);
+}
+.cmt-brands__logo {
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
-  max-width: 440px;
+  height: auto;
   object-fit: contain;
 }
 
